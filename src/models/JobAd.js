@@ -36,7 +36,10 @@ const JobAdSchema = new mongoose.Schema(
     },
     salary: {
       type: Number,
-      required: true,
+    },
+    jobType: {
+      type: String,
+      require: true,
     },
     modality: {
       type: String,
@@ -46,10 +49,14 @@ const JobAdSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    urlCompanyLogo: {
+      type: String,
+      default: "",
+    },
   },
   { timestamps: true }
 );
 
-const JobAd= mongoose.model('JobAd',JobAdSchema);
+const JobAd = mongoose.model("JobAd", JobAdSchema);
 
-module.exports=JobAd;
+module.exports = JobAd;
