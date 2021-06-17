@@ -13,4 +13,23 @@ jobAdRouter.post("", (req, res) => {
   }
 });
 
+jobAdRouter.get("/all", (req, res) => {
+  try {
+    JobAdModel.find((err, jobAds) => {
+      res.send(jobAds);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+jobAdRouter.get("/:id", async (req, res) => {
+  try {
+    let jobAd = await JobAdModel.findOne({ _id: req.params.id });
+    res.send(jobAd);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = jobAdRouter;
